@@ -4,6 +4,11 @@
     "random commands
         "use Q to run the command on currnet line and insert the output
         nnoremap Q !!sh<CR>
+    "disable arrow keys
+    noremap <Up>        <Nop>
+    noremap <Down>      <Nop>
+    noremap <Left>      <Nop>
+    noremap <Right>     <Nop>
 
 "external commands inside
 command MakeTags !ctags -R .
