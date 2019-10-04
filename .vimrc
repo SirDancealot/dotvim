@@ -1,5 +1,9 @@
 "cumstom key mappings
-nnoremap ,C :-1read ~/.vim/templates/.skeleton.vim.c<CR>4j4la
+    "templates
+    nnoremap ,C :-1read ~/.vim/templates/.skeleton.vim.c<CR>4j4la
+    "random commands
+        "use Q to run the command on currnet line and insert the output
+        nnoremap Q !!sh<CR>
 
 "external commands inside
 command MakeTags !ctags -R .
@@ -68,3 +72,4 @@ function! InsertTabWrapper()
 endfunction
 inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
 inoremap <S-Tab> <C-n>
+
