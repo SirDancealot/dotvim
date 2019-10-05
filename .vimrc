@@ -40,6 +40,7 @@ set tabstop=4
 set shiftwidth=4
 set linebreak
 set sidescrolloff=5
+set textwidth=120
 
 "search settings
 set hlsearch
@@ -90,3 +91,9 @@ let g:syntastic_check_on_wq = 0
 
 "ctrlp settings
 let g:ctrlp_show_hidden = 1
+
+"lorem ipsum printer
+function! PrintLoremIpsum()
+    execute 'normal ihead -n  ~/.vim/templates/.loremipsum.vim0fnla'.v:count1.'Q'
+endfunction
+nnoremap <leader>lorem :<C-U>call PrintLoremIpsum()<CR>
