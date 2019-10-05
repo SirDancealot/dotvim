@@ -1,14 +1,15 @@
+let mapleader = ","
 "cumstom key mappings
-    "templates
-    nnoremap ,C :-1read ~/.vim/templates/.skeleton.vim.c<CR>4j4la
-    "random commands
-        "use Q to run the command on currnet line and insert the output
-        nnoremap Q !!sh<CR>
-    "disable arrow keys
-    noremap <Up>        <Nop>
-    noremap <Down>      <Nop>
-    noremap <Left>      <Nop>
-    noremap <Right>     <Nop>
+"templates
+nnoremap <leader>C :-1read ~/.vim/templates/.skeleton.vim.c<CR>4j4la
+"random commands
+"use Q to run the command on currnet line and insert the output
+nnoremap Q !!sh<CR>
+"disable arrow keys
+noremap <Up>        <Nop>
+noremap <Down>      <Nop>
+noremap <Left>      <Nop>
+noremap <Right>     <Nop>
 
 "external commands inside
 command MakeTags !ctags -R .
@@ -48,7 +49,6 @@ set smartcase
 colorscheme wombat256mod
 
 "misc.
-let mapleader = ","
 set noswapfile
 set visualbell
 set autowrite
@@ -65,7 +65,7 @@ set list listchars=tab:»·,trail:·,nbsp:·
 
 " Tab completion
 " will insert tab at beginning of line,
-" will use completion if not at beginning
+    " will use completion if not at beginning
 set wildmode=list:longest,list:full
 function! InsertTabWrapper()
     let col = col('.') - 1
@@ -78,3 +78,15 @@ endfunction
 inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
 inoremap <S-Tab> <C-n>
 
+"syntastics settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"ctrlp settings
+let g:ctrlp_show_hidden = 1
