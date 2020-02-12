@@ -1,0 +1,6 @@
+[submodule "plugin/vim-table-mode"]
+	path = plugin/vim-table-mode
+	url = git@github.com:dhruvasagar/vim-table-mode.git
+[submodule "pack/bundle/start/vim-table-mode"]
+	path = pack/bundle/start/vim-table-mode
+	url = git@github.com:dhruvasagar/vim-table-mode.git
