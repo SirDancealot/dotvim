@@ -5,6 +5,8 @@ nnoremap <leader>C :-1read ~/.vim/templates/.skeleton.vim.c<CR>4j4la
 "random commands
 "use Q to run the command on currnet line and insert the output
 nnoremap Q !!sh<CR>
+"trim ending whitespaces
+nnoremap <leader>tw g_ld$
 "disable arrow keys
 noremap <Up>        <Nop>
 noremap <Down>      <Nop>
@@ -94,6 +96,22 @@ let g:ctrlp_show_hidden = 1
 
 "lorem ipsum printer
 function! PrintLoremIpsum()
-    execute 'normal ihead -n  ~/.vim/templates/.loremipsum.vim0fnla'.v:count1.'!!sh'
+    execute 'normal Ohead -n  ~/.vim/templates/.loremipsum.vim0fnla'.v:count1.'!!sh'
 endfunction
 nnoremap <leader>lorem :<C-U>call PrintLoremIpsum()<CR>
+
+"make a line across the file
+nnoremap <leader>line 80i_<Esc>j0
+
+" WSL yank support
+" Currently doesnt work
+let s:clip = '/mnt/c/Windows/System32/clip.exe'
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
+    augroup END
+end
+
+" autoconvert *.odt files to txt when opening them
+autocmd BufReadPost *.odt :%!odt2txt %
